@@ -1,14 +1,10 @@
 const axios = require('axios');
 
-async function getData(Number) {
-     
-    Number = 1;
+ module.exports = async function getData(Number) { 
     
-    axios.get(`https://jsonplaceholder.typicode.com/users/${Number}`).then(resp => {
-  
-        console.log(resp.data);
-    });
+    const { data: getUser } = await axios(`https://jsonplaceholder.typicode.com/users/${Number}`)
+    const { data: getPost } = await axios(`https://jsonplaceholder.typicode.com/posts?userId=${Number}`)
 
-    }
-    
-getData()
+    return { getUser, getPost }
+}
+
