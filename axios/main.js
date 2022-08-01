@@ -1,3 +1,3 @@
-// const getData = require('./app.js');
+import getData from './app.js';
 
-// getData(2)
+getData(2)
